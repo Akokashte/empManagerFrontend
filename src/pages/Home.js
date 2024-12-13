@@ -4,7 +4,7 @@ import "../styles/loginPage.css";
 import "../styles/home.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setFeedbackArrayValue, setFeedbackValues } from "../features/feedbackSlice";
+import { resetFeedbackArray, setFeedbackArrayValue, setFeedbackValues } from "../features/feedbackSlice";
 import axios from "axios";
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
 
     useEffect(() => {
         if (!user.isLoggedIn) {
-            dispatch(setFeedbackArrayValue([]))
+            dispatch(resetFeedbackArray());
             navigate("/login");
         }
         else {

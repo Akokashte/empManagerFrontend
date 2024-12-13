@@ -9,6 +9,7 @@ import Error from './pages/Error';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValidationData } from './features/validateSlice';
+import { resetFeedbackArray } from './features/feedbackSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
 
   useEffect(() => {
     if (!validatedData.isLoggedIn) {
+      dispatch(resetFeedbackArray());
       checkUserLoggedIn()
     }
   }, [validatedData])

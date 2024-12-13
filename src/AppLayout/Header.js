@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import "../styles/header.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setValidationData } from "../features/validateSlice";
-import { setFeedbackArrayValue } from "../features/feedbackSlice";
+import { resetFeedbackArray, setFeedbackArrayValue } from "../features/feedbackSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -22,7 +21,7 @@ const Header = () => {
                         userName: ""
                     }
                 ))
-                dispatch(setFeedbackArrayValue([]))
+                dispatch(resetFeedbackArray());
                 alert("logged out successfully !")
             }
         } catch (error) {

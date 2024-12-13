@@ -15,10 +15,13 @@ const feedbackSlice = new createSlice({
         },
         setFeedbackArrayValue: (state, action) => {
             state.feedbackArray = action.payload.reverse();
+        },
+        resetFeedbackArray: (state, action) => {
+            state.feedbackArray = []
         }
     }
 })
 
 
-export const { setFeedbackValues, setFeedbackArrayValue } = feedbackSlice.actions;
+export const { setFeedbackValues, setFeedbackArrayValue, resetFeedbackArray } = feedbackSlice.actions;
 export default feedbackSlice.reducer;
