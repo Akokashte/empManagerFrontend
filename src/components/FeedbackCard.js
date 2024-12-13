@@ -28,16 +28,16 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback 
                     }
                 }
             )
-            alert("pushpa",res)
 
             if (res.data.success) {
                 if (user.email === "admin@gmail.com") {
                     getAllEmployeeFeedbacks();
+                    alert("feedback deleted successfully !");
                 }
                 else {
                     getEmployeeFeedbacks();
+                    alert("feedback deleted successfully !");
                 }
-                alert("feedback deleted successfully !");
             }
 
         } catch (error) {
