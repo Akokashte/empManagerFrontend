@@ -28,7 +28,7 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback 
                     }
                 }
             )
-            console.log("pushpa",res)
+            alert("pushpa",res)
 
             if (res.data.success) {
                 if (user.email === "admin@gmail.com") {
