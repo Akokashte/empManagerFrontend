@@ -22,7 +22,7 @@ const Login = () => {
         e.preventDefault();
         try {
             console.log(userCredentials)
-            const res = await axios.post("http://localhost:5000/api/v1/user/login",
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/login`,
                 {
                     email: userCredentials.email,
                     password: userCredentials.password

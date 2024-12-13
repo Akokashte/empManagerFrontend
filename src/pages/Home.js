@@ -31,7 +31,7 @@ const Home = () => {
     // fetch all feedbacks
     const getAllEmployeeFeedbacks = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/v1/feedback/get",
+            const res = await axios.get("${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/feedback/get",
                 { withCredentials: true }
             );
 
@@ -47,7 +47,7 @@ const Home = () => {
     // fetch feedbacks of particular employee
     const getEmployeeFeedbacks = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/v1/feedback/get/logged/user/feedbacks",
+            const res = await axios.get("${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/feedback/get/logged/user/feedbacks",
                 { withCredentials: true }
             );
 
@@ -72,7 +72,7 @@ const Home = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:5000/api/v1/feedback/create", { feedback }, { withCredentials: true })
+            const res = await axios.post("${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/feedback/create", { feedback }, { withCredentials: true })
             console.log(res);
             if (res.data.data.isFeedbackCreated) {
                 alert("feedback created successfully !")
