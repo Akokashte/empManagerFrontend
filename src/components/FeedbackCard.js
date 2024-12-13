@@ -21,7 +21,7 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
 
     const handleDelete = async (feedbackId) => {
         try {
-            const res = await axios.delete("${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/feedback/delete",
+            const res = await axios.delete(`${process.env.REACT_APP_BACKEND_BASE_URL}/feedback/delete`,
                 {
                     withCredentials: true,
                     data: {
@@ -62,7 +62,7 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
         e.preventDefault();
         try {
             console.log("hare", updatedFeedback, feedbackId)
-            const res = await axios.patch("${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/feedback/update",
+            const res = await axios.patch(`${process.env.REACT_APP_BACKEND_BASE_URL}/feedback/update`,
                 {
                     feedbackId,
                     feedbackUpdatedData: updatedFeedback
