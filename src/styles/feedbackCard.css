@@ -1,0 +1,60 @@
+.feedback_card {
+    width: 80%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--bgPrimary);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.feedback_data{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.feedback_text {
+    font-size: 1rem;
+    font-weight: var(--regular);
+}
+
+.feedback_date {
+    font-size: 1rem;
+    color: var(--textDark);
+    font-weight: var(--semibold);
+}
+
+.crud_btns{
+    width: 100%; 
+    display: flex;
+    gap: 1rem;
+ }
+ 
+ .delete_btn{
+     padding: 0.5rem 1rem;
+     color: var(--textDark);
+     font-weight: var(--medium);
+     border-radius: 0.2rem;
+     cursor: pointer;
+     background-color: var(--bgOrange);
+     transition: all 0.2s ease-in-out;
+ }
+ 
+ .delete_btn:hover{
+    transform: scale(1.1);
+ }
+ 
+ .edit_btn{
+     padding: 0.5rem 1rem;
+     color: var(--textPrimary);
+     font-weight: var(--medium);
+     border-radius: 0.2rem;
+     cursor: pointer;
+     background-color: var(--bgBlue);
+     transition: all 0.2s ease-in-out;
+ }
+ 
+ .edit_btn:hover{
+     transform: scale(1.1);
+  }

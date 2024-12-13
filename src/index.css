@@ -1,0 +1,58 @@
+@import "~@flaticon/flaticon-uicons/css/all/all";
+
+body {
+  margin: 0;
+
+  /* font-family: 'noto-sans-thai-looped', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  font-family: "noto-looped-thai", sans-serif;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+:root {
+  /* fonts here */
+
+
+
+
+  /* font weight here */
+  --thin: 100;
+  --extralight: 200;
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --semibold: 600;
+  --bold: 700;
+  --extrabold: 800;
+  --black: 900;
+
+  /* text-colors here */
+  --textPrimary: #FFFFFF;
+  --textlight: #443B3B;
+  --textDark: #000000;
+  --textBlue: #1F42FD;
+  --textLightBlue: #0271F4;
+  --textExtraLightBlue: #194BFF;
+
+
+  /* background-colors here */
+  --bgPrimary: #FFFFFF;
+  --bgPrimaryLight: #FCFBF7;
+  --bgPrimaryExtraLight: #F9FAFF;
+  --bgLight:#F5F5F5;
+  --bgOrange: #F4AB1D;
+  --bgDark: #070817;
+  --bgExtraDark: #000000;
+  --bgBluishDark: #1B2435;
+  --bgBlue:#3C4FFA;
+  --light_gray:rgb(174, 174, 174);
+}
