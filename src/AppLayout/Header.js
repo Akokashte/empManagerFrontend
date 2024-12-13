@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setValidationData } from "../features/validateSlice";
+import { setFeedbackArrayValue } from "../features/feedbackSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/logout`,{},{withCredentials:true});
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/logout`, {}, { withCredentials: true });
             if (res.data.data.isLoggedOut) {
                 dispatch(setValidationData(
                     {
@@ -21,6 +22,7 @@ const Header = () => {
                         userName: ""
                     }
                 ))
+                dispatch(setFeedbackArrayValue([]))
                 alert("logged out successfully !")
             }
         } catch (error) {

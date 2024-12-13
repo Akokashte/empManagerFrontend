@@ -23,7 +23,6 @@ const Home = () => {
             if (user.email === "admin@gmail.com") {
                 getAllEmployeeFeedbacks()
             }
-            setFeedbackArrayValue([])
             getEmployeeFeedbacks();
         }
     }, [user])
