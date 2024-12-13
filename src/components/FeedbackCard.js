@@ -29,15 +29,14 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback 
                 }
             )
 
-            if (res.data.success) {
+            if (res.data.data.isFeedbackDeleted) {
                 if (user.email === "admin@gmail.com") {
                     getAllEmployeeFeedbacks();
-                    alert("feedback deleted successfully !");
                 }
                 else {
                     getEmployeeFeedbacks();
-                    alert("feedback deleted successfully !");
                 }
+                alert("feedback deleted successfully !");
             }
 
         } catch (error) {
