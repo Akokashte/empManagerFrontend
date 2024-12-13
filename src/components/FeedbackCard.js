@@ -30,13 +30,13 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
             )
 
             if (res.data.data.isFeedbackDeleted) {
-                alert("feedback deleted successfully !");
                 if (user.email === "admin@gmail.com") {
                     getAllEmployeeFeedbacks();
                 }
                 else {
                     getEmployeeFeedbacks();
                 }
+                alert("feedback deleted successfully !");
             }
 
         } catch (error) {
@@ -60,7 +60,6 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            console.log("hare", updatedFeedback, feedbackId)
             const res = await axios.patch(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/feedback/update`,
                 {
                     feedbackId,
@@ -70,7 +69,7 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
                     withCredentials: true
                 }
             );
-            console.log(res)
+
             if (res.data.data.isFeedbackUpdated) {
                 alert("feedback updated successfully !");
                 getEmployeeFeedbacks();

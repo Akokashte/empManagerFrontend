@@ -9,12 +9,10 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.validate);
-    console.log(user)
-
 
     const handleLogout = async () => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/logout`, {}, { withCredentials: true })
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/logout`,{},{withCredentials:true});
             if (res.data.data.isLoggedOut) {
                 dispatch(setValidationData(
                     {
