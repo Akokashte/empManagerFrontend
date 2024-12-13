@@ -10,7 +10,6 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
         feedback: ""
     });
     const user = useSelector((state)=>state.user);
-    console.log("nicy",user)
 
     const formatDate = (dateString) => {
         const date = new Date(dateString); // Convert the MongoDB date string to a Date object
