@@ -17,13 +17,13 @@ const Home = () => {
 
     useEffect(() => {
         if (!user.isLoggedIn) {
+            dispatch(setFeedbackArrayValue([]))
             navigate("/login");
         }
         else {
             if (user.email === "admin@gmail.com") {
                 getAllEmployeeFeedbacks()
             }
-            dispatch(setFeedbackArrayValue([]))
             getEmployeeFeedbacks();
         }
     }, [user])
