@@ -25,7 +25,7 @@ const Home = () => {
             }
             getEmployeeFeedbacks();
         }
-    }, [user])
+    }, [user,feedbackArray])
 
 
     // fetch all feedbacks
