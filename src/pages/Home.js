@@ -38,7 +38,7 @@ const Home = () => {
             console.log("hi",res)
             alert("hi",res);
 
-            if (res.data.data.isFeedbackFetched) {
+            if (res.data.isFeedbackFetched) {
                 const feedbackArrayGot = res.data.data.feedbacks;
                 dispatch(setFeedbackArrayValue(feedbackArrayGot))
             }
