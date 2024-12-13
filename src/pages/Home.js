@@ -35,9 +35,9 @@ const Home = () => {
                 { withCredentials: true }
             );
 
-            if (res.data.data.feedbackData) {
-                alert("fetch successfull")
-                const feedbackArrayGot = res.data.data.feedbackData;
+            if (res.data.success) {
+                const feedbackArrayGot = res.data.data;
+                console.log(feedbackArrayGot)
                 dispatch(setFeedbackArrayValue(feedbackArrayGot))
             }
         } catch (error) {
@@ -116,7 +116,7 @@ const Home = () => {
                     }
                 </div>
                 {
-                    !(user.email === "admin@gmail.com") && addFeedbackClicked &&
+                    !(user.email === "admin@gmail.com")  && addFeedbackClicked &&
                     <div className="feedback_form">
                         <form onSubmit={handleSubmit}>
                             <div className="label_input_group">
