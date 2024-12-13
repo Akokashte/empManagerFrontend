@@ -22,7 +22,7 @@ function App() {
 
   const checkUserLoggedIn = async () => {
     try {
-      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/user/check/islogeed/in`, {}, { withCredentials: true })
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}api/v1//user/check/islogeed/in`, {}, { withCredentials: true })
       if (res.data.data.user.isLoggedIn) {
         dispatch(setValidationData(res.data.data.user))
       }

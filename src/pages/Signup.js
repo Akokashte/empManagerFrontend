@@ -26,7 +26,7 @@ const Signup = () => {
                 return
             }
             console.log("kadka", userCredentials)
-            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/user/signup`,
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/signup`,
                 userCredentials,
                 { withCredentials: true }
             )
