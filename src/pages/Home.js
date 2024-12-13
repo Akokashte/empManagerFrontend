@@ -38,8 +38,8 @@ const Home = () => {
             console.log("hi",res)
             alert("hi",res);
 
-            if (res.data.success) {
-                const feedbackArrayGot = res.data.data.feedbackData;
+            if (res.data.data.isFeedbackFetched) {
+                const feedbackArrayGot = res.data.data.feedbacks;
                 dispatch(setFeedbackArrayValue(feedbackArrayGot))
             }
         } catch (error) {
