@@ -25,7 +25,7 @@ const Home = () => {
             }
             getEmployeeFeedbacks();
         }
-    }, [user,feedbackArray])
+    }, [user])
 
 
     // fetch all feedbacks
@@ -37,7 +37,7 @@ const Home = () => {
 
             if (res.data.success) {
                 const feedbackArrayGot = res.data.data;
-                console.log("nice re",feedbackArrayGot)
+                console.log(feedbackArrayGot)
                 dispatch(setFeedbackArrayValue(feedbackArrayGot))
             }
         } catch (error) {
@@ -132,7 +132,7 @@ const Home = () => {
                 <div className="all_feedback_wrapper">
                     {
                         feedbackArray.map((curFeedback, index) => {
-                            return <FeedbackCard getEmployeeFeedbacks={getEmployeeFeedbacks} getAllEmployeeFeedbacks={getAllEmployeeFeedbacks} setAddFeedbackClicked={setAddFeedbackClicked} key={index} feedback={curFeedback} />
+                            return <FeedbackCard getEmployeeFeedbacks={getEmployeeFeedbacks} getAllEmployeeFeedbacks={getAllEmployeeFeedbacks} feedback={curFeedback} key={index} />
                         })
                     }
                 </div>

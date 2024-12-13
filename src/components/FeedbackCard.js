@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback, setAddFeedbackClicked }) => {
+const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback }) => {
     const [updateClicked, setUpdateClicked] = useState(false)
     const [feedbackId, setFeedbackId] = useState(null);
     const [updatedFeedback, setUpdatedFeedback] = useState({
@@ -29,7 +29,7 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback,
                 }
             )
 
-            if (res.data.data.isFeedbackDeleted) {
+            if (res.data.success) {
                 if (user.email === "admin@gmail.com") {
                     getAllEmployeeFeedbacks();
                 }
