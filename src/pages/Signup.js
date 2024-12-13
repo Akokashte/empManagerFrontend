@@ -45,6 +45,12 @@ const Signup = () => {
             }
         } catch (error) {
             alert("invalid credentials or user may already exist !!")
+            dispatch(setUserValues({
+                userName: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+            }))
         }
 
     }

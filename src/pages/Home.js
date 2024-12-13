@@ -37,6 +37,7 @@ const Home = () => {
 
             if (res.data.success) {
                 const feedbackArrayGot = res.data.data;
+                console.log("nice re",feedbackArrayGot)
                 dispatch(setFeedbackArrayValue(feedbackArrayGot))
             }
         } catch (error) {

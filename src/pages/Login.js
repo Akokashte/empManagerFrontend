@@ -44,6 +44,12 @@ const Login = () => {
             }
         } catch (error) {
             alert("invalid credentials !!")
+            dispatch(setUserValues({
+                userName: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+            }))
         }
 
     }
