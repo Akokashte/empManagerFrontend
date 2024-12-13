@@ -35,6 +35,8 @@ const Home = () => {
                 { withCredentials: true }
             );
 
+            console.log("hi",res)
+
             if (res.data.success) {
                 const feedbackArrayGot = res.data.data;
                 console.log(feedbackArrayGot)
