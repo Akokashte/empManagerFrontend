@@ -9,6 +9,7 @@ const Header = () => {
 
     const user = useSelector((state) => state.validate);
 
+    
     const handleLogout = async () => {
         try {
             const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/logout`, {}, { withCredentials: true });
