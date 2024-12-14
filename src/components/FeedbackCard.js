@@ -3,13 +3,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback }) => {
+const FeedbackCard = ({ getEmployeeFeedbacks, curFeedback, getAllEmployeeFeedbacks,userEmail }) => {
     const [updateClicked, setUpdateClicked] = useState(false)
     const [feedbackId, setFeedbackId] = useState(null);
     const [updatedFeedback, setUpdatedFeedback] = useState({
         feedback: ""
     });
-    const user = useSelector((state)=>state.user);
+
+    const user = useSelector((state) => state.user);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString); // Convert the MongoDB date string to a Date object
@@ -17,6 +18,7 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback 
 
         return formattedDate.split('/').reverse().join('/'); // To get YYYY/MM/DD format
     };
+
 
     const handleDelete = async (feedbackId) => {
         try {
@@ -30,8 +32,8 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback 
             )
 
             if (res.data.data.isFeedbackDeleted) {
-                if (user.email === "admin@gmail.com") {
-                    getAllEmployeeFeedbacks();
+                if (userEmail === "admin@gmail.com") {
+                   await getAllEmployeeFeedbacks();
                 }
                 else {
                     getEmployeeFeedbacks();
@@ -84,14 +86,14 @@ const FeedbackCard = ({ getEmployeeFeedbacks, getAllEmployeeFeedbacks, feedback 
         <>
             <div className="feedback_card">
                 <div className="feedback_data">
-                    <p className="feedback_text">{feedback.feedback}</p>
-                    <span className="feedback_date">{formatDate(feedback.updatedAt)}</span>
+                    <p className="feedback_text">{curFeedback.feedback}</p>
+                    <span className="feedback_date">{formatDate(curFeedback.updatedAt)}</span>
                 </div>
                 <div className="crud_btns">
-                    <span className="delete_btn" onClick={() => handleDelete(feedback._id)}>Delete</span>
+                    <span className="delete_btn" onClick={() => handleDelete(curFeedback._id)}>Delete</span>
                     {
-                        !(user.email === "admin@gmail.com") &&
-                        <span className="edit_btn" onClick={() => handleUpdateClicked(feedback)}>Edit</span>
+                        userEmail !== "admin@gmail.com" &&
+                        <span className="edit_btn" onClick={() => handleUpdateClicked(curFeedback)}>Edit</span>
                     }
                 </div>
                 {

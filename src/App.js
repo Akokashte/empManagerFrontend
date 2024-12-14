@@ -9,7 +9,6 @@ import Error from './pages/Error';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValidationData } from './features/validateSlice';
-import { resetFeedbackArray } from './features/feedbackSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,14 +16,13 @@ function App() {
 
   useEffect(() => {
     if (!validatedData.isLoggedIn) {
-      dispatch(resetFeedbackArray());
       checkUserLoggedIn()
     }
   }, [validatedData])
 
   const checkUserLoggedIn = async () => {
     try {
-      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}api/v1//user/check/islogeed/in`, {}, { withCredentials: true })
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user/check/islogeed/in`, {}, { withCredentials: true })
       if (res.data.data.user.isLoggedIn) {
         dispatch(setValidationData(res.data.data.user))
       }

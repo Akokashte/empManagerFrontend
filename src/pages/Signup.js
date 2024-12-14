@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setValidationData } from "../features/validateSlice";
 import { useNavigate } from "react-router-dom";
+import { resetFeedbackArray } from "../features/feedbackSlice";
 
 const Signup = () => {
     const dispatch = useDispatch()
@@ -16,6 +17,9 @@ const Signup = () => {
         if (user.isLoggedIn) {
             navigate("/")
         }
+        // else {
+        //     dispatch(resetFeedbackArray());
+        // }
     }, [user])
 
     const handleLogin = async (e) => {

@@ -1,9 +1,8 @@
-import "../styles/header.css";
 import { NavLink } from "react-router-dom";
+import "../styles/header.css"; 
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setValidationData } from "../features/validateSlice";
-import { resetFeedbackArray, setFeedbackArrayValue } from "../features/feedbackSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const Header = () => {
                         userName: ""
                     }
                 ))
-                dispatch(resetFeedbackArray());
+                // dispatch(resetFeedbackArray());
                 alert("logged out successfully !")
             }
         } catch (error) {

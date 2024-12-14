@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setValidationData } from "../features/validateSlice";
 import { useNavigate } from "react-router-dom";
+import { resetFeedbackArray } from "../features/feedbackSlice";
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -13,8 +14,11 @@ const Login = () => {
     const user = useSelector(state => state.validate)
 
     useEffect(() => {
-        if(user.isLoggedIn){
+        if (user.isLoggedIn) {
             navigate("/")
+        }
+        else {
+            dispatch(resetFeedbackArray());
         }
     }, [user])
 

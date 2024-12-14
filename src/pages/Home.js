@@ -16,17 +16,18 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!user.isLoggedIn) {
-            dispatch(resetFeedbackArray());
-            navigate("/login");
-        }
-        else {
+        if (user.isLoggedIn) {
             if (user.email === "admin@gmail.com") {
                 getAllEmployeeFeedbacks()
             }
-            getEmployeeFeedbacks();
+            else {
+                getEmployeeFeedbacks();
+            }
         }
-    }, [user])
+        else if (!user.isLoggedIn) {
+            navigate("/login");
+        }
+    }, [user, feedbackArray])
 
 
     // fetch all feedbacks
@@ -36,9 +37,8 @@ const Home = () => {
                 { withCredentials: true }
             );
 
-            if (res.data.success) {
-                const feedbackArrayGot = res.data.data;
-                console.log(feedbackArrayGot)
+            if (res.data.data.isFeedbackFetched) {
+                const feedbackArrayGot = await res.data.data.feedbackData;
                 dispatch(setFeedbackArrayValue(feedbackArrayGot))
             }
         } catch (error) {
@@ -54,8 +54,8 @@ const Home = () => {
             );
 
             if (res.data.data.isFeedbackFetched) {
-                const feedbackArrayGot = res.data.data.feedbacks;
-                dispatch(setFeedbackArrayValue(feedbackArrayGot))
+                const feedbackArrayGot = await res.data.data.feedbacks;
+                dispatch(setFeedbackArrayValue([...feedbackArrayGot]))
             }
         } catch (error) {
             alert("failed to fetch feedbacks");
@@ -117,7 +117,7 @@ const Home = () => {
                     }
                 </div>
                 {
-                    !(user.email === "admin@gmail.com")  && addFeedbackClicked &&
+                    !(user.email === "admin@gmail.com") && addFeedbackClicked &&
                     <div className="feedback_form">
                         <form onSubmit={handleSubmit}>
                             <div className="label_input_group">
@@ -133,7 +133,7 @@ const Home = () => {
                 <div className="all_feedback_wrapper">
                     {
                         feedbackArray.map((curFeedback, index) => {
-                            return <FeedbackCard getEmployeeFeedbacks={getEmployeeFeedbacks} getAllEmployeeFeedbacks={getAllEmployeeFeedbacks} feedback={curFeedback} key={index} />
+                            return <FeedbackCard getEmployeeFeedbacks={getEmployeeFeedbacks} curFeedback={curFeedback} getAllEmployeeFeedbacks={getAllEmployeeFeedbacks} userEmail={user.email} key={index} />
                         })
                     }
                 </div>
